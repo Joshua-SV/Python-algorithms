@@ -1,3 +1,4 @@
+# Selection Sort is O(N^2)
 def selectSort(arr):
 	length = len(arr)
 
