@@ -7,20 +7,21 @@ class TreeNode:
 
 """
 The following code builds a tree that looks like:
-    0
-  /   \
- 1     2
+     0
+   /   \
+  1     2
+ / \   /
+ 6  4 7
 """
 
 
-def dfs(node):
+def dfsLeftMax(node,depth):
 	if not node:
-		return
-
-	dfs(node.left)
-	print(node.val)
-	dfs(node.right)
-
+		return depth
+	depth += 1
+	maxLeftDepth = dfsLeftMax(node.left, depth)
+	maxRightDepth = dfsLeftMax(node.right, depth)
+	return max(maxRightDepth, maxLeftDepth)
 
 root = TreeNode(0)
 one = TreeNode(1)
@@ -35,4 +36,6 @@ one.left = child4
 one.right = child3
 two.left = child5
 
-dfs(root)
+Max = dfsLeftMax(root, 0)
+
+print(Max)
