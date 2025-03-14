@@ -1,18 +1,19 @@
 # Selection Sort is O(N^2)
-def selectSort(arr):
-	length = len(arr)
+def selectionSort(arr, sort="des"):
+    length = len(arr)
 
-	for i in range(length):
-		bigNum = arr[0] # have the first value be considered big
-		bigIndex = 0
-		for j in range(1, length):
-			if bigNum < arr[j]:
-				bigIndex = j
-				bigNum = arr[j]
-		# swap the last numbered index with the big number
-		arr[bigIndex] = arr[length - 1]
-		arr[length - 1] = bigNum
-		length -= 1
-	return arr
+    for i in range(length):
+        bigIndex = i  # Start by assuming the first unsorted element is the largest
 
-print(selectSort([5,4,3,7,1,2,3,8]))
+        for j in range(i + 1, length):
+            if sort.lower() == "ascd":
+                if arr[j] < arr[bigIndex]:  # Find the low element
+                    bigIndex = j
+            else:
+                if arr[j] > arr[bigIndex]:  # Find the max element
+                    bigIndex = j
+        # Swap the found max element with the first unsorted element
+        arr[i], arr[bigIndex] = arr[bigIndex], arr[i]
+    return arr
+
+print(selectionSort([5,4,3,7,1,2,3,8]))

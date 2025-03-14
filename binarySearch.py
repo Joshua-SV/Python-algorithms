@@ -1,7 +1,7 @@
 # binary search
 # run time O(log N)
 
-def binaryS(lst, target):
+def binarySrch(lst, target):
 	low = 0
 	high = len(lst) - 1
 
@@ -21,5 +21,5 @@ def binaryS(lst, target):
 	return None
 
 lst = [3,5,7,8,9,10,11,12,13,14,15,16]
-index = binaryS(lst, 16)
+index = binarySrch(lst, 16)
 print(f"the number {lst[index]} is at index {index}")
